@@ -105,13 +105,13 @@ app.get('/test/:userQuery', function (req, res, next) {
 })
 
 
-app.listen(port, function() {
-
-});
-
 app.get('*', function (req, res, next) {
   console.log('HITTING GET ROUTE');
   res.send('HITTING GET ROUTE')
 })
+
+app.listen(port, function() {
+  console.log("LISTENING ON: ", process.env.PORT);
+});
 
 module.exports = app;
