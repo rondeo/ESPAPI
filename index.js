@@ -99,9 +99,9 @@ app.get('/test/:userQuery', function (req, res, next) {
     //     console.log("CLEANED DATA: ", cleanData);
     //     res.send(cleanData);
     // })
-    .catch(function(err) {
-        console.log("\n\n\nNO DICE:\n\n\n", err);
-    })
+    // .catch(function(err) {
+    //     console.log("\n\n\nNO DICE:\n\n\n", err);
+    // })
 })
 
 
