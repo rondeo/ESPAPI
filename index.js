@@ -65,53 +65,51 @@ app.use(bodyParser.json());
 
 
 app.get('/test/:userQuery', function (req, res, next) {
-  res.send('hitting route');
-  console.log("HITTING ROUTE");
-  // fn.getToken().then(function(token) {
-  //     console.log("\n\n\nTOKEN: \n\n\n", token);
-  //     let config = {
-  //       headers: {
-  //           "Authorization": token
-  //       }
-  //     }
-  //     axios.get('https://ciscodev.service-now.com/api/now/table/u_it_service_offering?sysparm_display_value=true', config).then(function(response) {
-  //         console.log("data", response.data.result[0]);
-  //     })
-  //     .catch(function(err) {
-  //       console.error("ERR: ", err);
-  //     })
-  // })
-
-    // fn.getData(req.params.userQuery).then(function(data) {
-    //     let cleanData = [];
-    //     for (i = 0; i < data.length; i++) {
-    //         let name = data[i].name.replace(/\-/g, "%2D").split(' ');
-    //         let url = "https://clicktospark.cloudapps.cisco.com/ServiceOfferingAysBot/"
-    //         for (var j in name) {
-    //             if(name[j] && name[j].length) {
-    //               url += name[j] + "%20"
-    //             }
-    //         }
-    //         var obj = {}
-    //         obj.name = data[i].name; obj.url = url;
-    //         cleanData.push(obj);
+    console.log("HITTING ROUTE");
+    // fn.getToken().then(function(token) {
+    //     console.log("\n\n\nTOKEN: \n\n\n", token);
+    //     let config = {
+    //       headers: {
+    //           "Authorization": token
+    //       }
     //     }
-    //     console.log("CLEANED DATA: ", cleanData);
-    //     res.send(cleanData);
+    //     axios.get('https://ciscodev.service-now.com/api/now/table/u_it_service_offering?sysparm_display_value=true', config).then(function(response) {
+    //         console.log("data", response.data.result[0]);
+    //     })
+    //     .catch(function(err) {
+    //       console.error("ERR: ", err);
+    //     })
     // })
-    // .catch(function(err) {
-    //     console.log("\n\n\nNO DICE:\n\n\n", err);
-    // })
+
+    fn.getData(req.params.userQuery).then(function(data) {
+        let cleanData = [];
+        for (i = 0; i < data.length; i++) {
+            let name = data[i].name.replace(/\-/g, "%2D").split(' ');
+            let url = "https://clicktospark.cloudapps.cisco.com/ServiceOfferingAysBot/"
+            for (var j in name) {
+                if(name[j] && name[j].length) {
+                  url += name[j] + "%20"
+                }
+            }
+            var obj = {}
+            obj.name = data[i].name; obj.url = url;
+            cleanData.push(obj);
+        }
+        console.log("CLEANED DATA: ", cleanData);
+        res.send(cleanData);
+    })
+    .catch(function(err) {
+        console.log("\n\n\nNO DICE:\n\n\n", err);
+    })
 })
 
 
 app.get('*', function (req, res, next) {
   console.log('HITTING GET ROUTE');
-  res.send('HITTING GET ROUTE')
 })
 
 app.listen(port, function() {
-  console.log("LISTENING ON: ", process.env.PORT);
+  console.log("LISTENING ON: ", port);
 });
 
 module.exports = app;
