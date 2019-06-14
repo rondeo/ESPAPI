@@ -64,6 +64,7 @@ app.use(bodyParser.json());
 
 
 app.get('/test/:userQuery', function (req, res, next) {
+  console.log("HITTING ROUTE");
   // fn.getToken().then(function(token) {
   //     console.log("\n\n\nTOKEN: \n\n\n", token);
   //     let config = {
