@@ -1,0 +1,26 @@
+{
+  "name": "esp-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "easysoap": "^2.2.0",
+    "express": "^4.17.1",
+    "html": "^1.0.0",
+    "https": "^1.0.0",
+    "install": "^0.12.2",
+    "npm": "^6.9.0",
+    "request-promise": "^4.2.4",
+    "saml": "^0.13.0",
+    "saml-encoder-decoder-js": "^1.0.1",
+    "saml2-js": "^2.0.3",
+    "soap": "^0.27.1"
+  }
+}

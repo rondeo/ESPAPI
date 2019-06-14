@@ -1,0 +1,6 @@
+default:
+    SNOW_INSTANCE: ciscodev
+    SNOW_AUTH_TYPE: sts
+    SNOW_STS_URI: https://cloudsso-test.cisco.com/idp/sts.wst
+    SNOW_WS_USER: andwest
+    SNOW_WS_PASSWORD: treyUT55&
