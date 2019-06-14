@@ -63,6 +63,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+
 app.get('/test/:userQuery', function (req, res, next) {
   console.log("HITTING ROUTE");
   // fn.getToken().then(function(token) {
@@ -111,9 +112,13 @@ app.get('/test/:userQuery', function (req, res, next) {
 
 
 app.listen(port, function() {
-    console.log("App is running on port " + port, fn.getToken());
+
 });
 
+app.get('*', function (req, res, next) {
+  console.log('HITTING GET ROUTE');
+  res.send('HITTING GET ROUTE')
+})
 
 module.exports = app;
 
