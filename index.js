@@ -65,6 +65,7 @@ app.use(bodyParser.json());
 
 
 app.get('/test/:userQuery', function (req, res, next) {
+  res.send('hitting route');
   console.log("HITTING ROUTE");
   // fn.getToken().then(function(token) {
   //     console.log("\n\n\nTOKEN: \n\n\n", token);
@@ -81,25 +82,23 @@ app.get('/test/:userQuery', function (req, res, next) {
   //     })
   // })
 
-    fn.getData(req.params.userQuery).then(function(data) {
-        let cleanData = [];
-        for (i = 0; i < data.length; i++) {
-            let name = data[i].name.replace(/\-/g, "%2D").split(' ');
-            let url = "https://clicktospark.cloudapps.cisco.com/ServiceOfferingAysBot/"
-            for (var j in name) {
-                if(name[j] && name[j].length) {
-                  url += name[j] + "%20"
-                }
-            }
-            var obj = {}
-            obj.name = data[i].name; obj.url = url;
-            cleanData.push(obj);
-        }
-        console.log("CLEANED DATA: ", cleanData);
-        res.send(cleanData);
-      // res.json("https://clicktospark.cloudapps.cisco.com/ServiceOfferingAysBot/IP%20Phone%20%2A%2A%20Features");
-
-    })
+    // fn.getData(req.params.userQuery).then(function(data) {
+    //     let cleanData = [];
+    //     for (i = 0; i < data.length; i++) {
+    //         let name = data[i].name.replace(/\-/g, "%2D").split(' ');
+    //         let url = "https://clicktospark.cloudapps.cisco.com/ServiceOfferingAysBot/"
+    //         for (var j in name) {
+    //             if(name[j] && name[j].length) {
+    //               url += name[j] + "%20"
+    //             }
+    //         }
+    //         var obj = {}
+    //         obj.name = data[i].name; obj.url = url;
+    //         cleanData.push(obj);
+    //     }
+    //     console.log("CLEANED DATA: ", cleanData);
+    //     res.send(cleanData);
+    // })
     .catch(function(err) {
         console.log("\n\n\nNO DICE:\n\n\n", err);
     })
