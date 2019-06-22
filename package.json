@@ -17,7 +17,6 @@
     "html": "^1.0.0",
     "https": "^1.0.0",
     "install": "^0.12.2",
-    "npm": "^6.9.0",
     "request-promise": "^4.2.4",
     "saml": "^0.13.0",
     "saml-encoder-decoder-js": "^1.0.1",
